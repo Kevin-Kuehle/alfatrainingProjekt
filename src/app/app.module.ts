@@ -10,6 +10,7 @@ import {BilderComponent} from './bilder/bilder.component';
 import {HttpClientModule} from "@angular/common/http";
 import { BilderDetailComponent } from './bilder-detail/bilder-detail.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ImagesService} from "./images.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ImagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

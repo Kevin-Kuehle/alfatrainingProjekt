@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {ImagesService} from "../images.service";
 
 @Component( {
   selector: 'app-home',
@@ -10,16 +11,15 @@ export class HomeComponent implements OnInit {
   public title = 'Bilder suchen...';
   public toSearch = 'Dark';
 
-  constructor( private ROUTER: Router ) {
+  constructor( private ROUTER: Router, private IMAGESERVICE: ImagesService ) {
   }
 
   ngOnInit() {
   }
 
   searchImage( toSearch ) {
-    console.log(toSearch)
-    // Change Value in service
-    // Send user to Bilder
+    console.log(toSearch);
+    this.IMAGESERVICE.changeSearch(toSearch);
+    this.ROUTER.navigate(['Bilder']);
   }
-
 }

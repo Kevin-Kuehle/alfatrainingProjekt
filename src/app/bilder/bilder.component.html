@@ -4,7 +4,7 @@
       <h1>{{title | titlecase }}</h1>
     </div>
     <div class="searchForm">
-      <input name="searchForm" class="searchFormBilder"  #searchForm type="text"> <i  (click)="newSearch(searchForm.value)" class="fa fa-search" aria-hidden="true"></i>
+      <input  (keyup.enter)="newSearch(searchForm.value)" name="searchForm" class="searchFormBilder"  #searchForm type="text"> <i   (click)="newSearch(searchForm.value)" class="fa fa-search" aria-hidden="true"></i>
       <div class="toolBar">
         <div class="btn-group" role="group" aria-label="Basic example">
           <button type="button" class="btn ">20 Bilder</button>
