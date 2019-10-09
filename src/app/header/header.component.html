@@ -1,0 +1,32 @@
+<div class="header-container">
+  <div (mouseleave)="triggerChangeColor = !triggerChangeColor" [class.changeColor]="triggerChangeColor" class="logo">
+    Kevin Kühle
+  </div>
+  <div class="menu">
+    <a routerLink="" class="btn btn-primary">Startseite</a>
+    <a routerLink="Bilder" class="btn btn-primary">Bilder</a>
+  </div>
+  <a (click)="showLogin = !showLogin" class="btn btn-primary">Login</a>
+</div>
+
+<div [hidden]="showLogin" [class.fadeInR]="showLogin" class="formContainer slideInDown">
+  <div class="header">
+    <button (click)="showLogin = !showLogin" type="button" class="close-btn close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h3>Anmelden</h3>
+  </div>
+  <div class="body">
+    <form class="loginForm">
+      <div class="group">
+        <label for="email"> <small>Email</small> </label>
+        <input placeholder="admin" id="email" name="email" type="text">
+      </div>
+      <div class="group">
+        <label for="passwort"><small>Passwort</small></label>
+        <input id="passwort" name="passwort" placeholder="12345" type="password">
+      </div>
+      <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block">{{ 'Anmelden' | uppercase }}</button>
+    </form>
+  </div>
+</div>

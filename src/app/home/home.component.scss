@@ -1,0 +1,56 @@
+:host {
+  flex: 1 0 calc(100vh);
+  background-image: url('../../assets/images/home_background.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+
+h1 {
+  color: #ffffff;
+  text-align: center;
+  font-weight: 300;
+}
+
+.box-1 {
+  border: 1px solid red;
+  height: 300px;
+}
+
+.box-2 {
+  border: 1px solid #07ff11;
+}
+
+
+
+.searchBox {
+  width: 410px;
+}
+.ImageSearchHome {
+  font-weight: 300;
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  width: 100%;
+  padding: 0.5rem 0;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+
+
+
+  + i {
+    cursor: pointer;
+    float: right;
+    transform: translateY(-24px);
+  }
+}
+
+.topSpacer {
+  display: block;
+  height: 100vh;
+  max-height: 34vh;
+}
+
+
+
+

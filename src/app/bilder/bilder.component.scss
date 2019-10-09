@@ -1,0 +1,68 @@
+:host {
+  flex: 1;
+  background-color: #131326;
+  color: var(--akzent-color);
+}
+
+.ImagesContainer {
+  display: flex;
+  flex-flow: row wrap;
+
+}
+
+.btn-group {
+  padding: 0.6rem 0;
+
+  .btn {
+    color: #fff;
+    background-color: var(--main-color);
+    font-size: 12px;
+
+    &:hover {
+      background-color: darken(#503CB9, 10%)
+    }
+  }
+}
+
+.imageBox {
+  width: auto;
+  height: 300px;
+  flex: 1 1 20%;
+  margin: 3px;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.searchForm {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 2rem;
+
+
+  .searchFormBilder {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white;
+    background: none;
+    padding: 0.7rem 0;
+    color: white;
+    text-align: center;
+    font-size: 29px;
+    letter-spacing: 3.2px;
+
+    + i {
+      position: absolute;
+      right: 32px;
+      top: 72px;
+      cursor: pointer;
+    }
+  }
+
+}

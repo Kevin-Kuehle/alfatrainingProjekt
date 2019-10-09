@@ -1,0 +1,43 @@
+:host {
+  flex: 1;
+  background-color: var(--background-color);
+  color: #fff;
+}
+
+.grid {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+}
+
+.header {
+  border: 1px solid red;
+  flex: 1;
+}
+
+main {
+  padding-top: 2.5rem;
+}
+
+.body {
+  flex: 0 0 calc(100vh - 52px);
+  width: 100%;
+  background-position: center center;
+  background-size: 65% auto;
+  background-repeat: no-repeat;
+
+}
+
+.toolBar {
+  flex: 0 0 150px;
+
+  .btn {
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: inherit;
+    }
+  }
+}
+
+

@@ -1,0 +1,11 @@
+:host {
+  flex: 0 0 40px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  background-color: var(--footer-color);
+  color: var(--akzent-color);
+}

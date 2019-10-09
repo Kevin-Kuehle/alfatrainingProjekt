@@ -1,0 +1,19 @@
+<main class="grid">
+  <div class="body" [ngStyle]="imageStyle"></div>
+  <div class="metaData">
+    <div class="row d-flex justify-content-center">
+      <div class="d-flex align-items-center justify-content-center align-items-center col-6">
+        <p> {{ image.tags }} </p>
+      </div>
+    </div>
+  </div>
+  <div class="toolBar pt-3">
+    <div class="row">
+      <div class="d-flex flex-row justify-content-center col-12">
+        <button routerLink="/Bilder" type="button" class="btn btn-outline-primary">Zurück</button>
+        <a name="btn-delete" id="delete" class="btn btn-danger" role="button">Löschen</a>
+        <a name="btn-edit" id="edit" class="btn btn-primary" role="button">Bearbeiten</a>
+      </div>
+    </div>
+  </div>
+</main>

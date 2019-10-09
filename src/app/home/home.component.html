@@ -1,0 +1,14 @@
+<main>
+  <div class="topSpacer"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 align-middle align-items-center d-flex flex-column">
+        <h1>{{ title }}</h1>
+        <div class="searchBox">
+          <input  (keyup.enter)="searchImage(ImageS.value)" #ImageS class="ImageSearchHome" [(ngModel)]="toSearch" name="imageToSearch" type="text">
+          <i class="fa fa-search light" (click)="searchImage(ImageS.value)" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
