@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { Router } from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validator, Validators} from "@angular/forms";
 
@@ -17,7 +19,7 @@ export class AddImageComponent implements OnInit {
     'url': ['', Validators.required]
   } );
 
-  constructor( private reactiveForm: FormBuilder ) { }
+  constructor( private reactiveForm: FormBuilder, private ROUTER:Router) { }
 
 
   ngOnInit() {}
@@ -45,5 +47,6 @@ export class AddImageComponent implements OnInit {
       console.log( localStorageData );
     }
     this.upLoadForm.reset();
+    this.ROUTER.navigate(['Bilder']);
   }
 }

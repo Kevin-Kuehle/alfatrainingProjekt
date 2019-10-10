@@ -9,7 +9,7 @@
     <form [formGroup]="upLoadForm" class="addForm d-flex flex-column align-items-center justify-content-center">
       <input  [class.valid]="upLoadForm.get('title').valid" formControlName="title" placeholder="TITEL" type="text" name="titel">
       <input  [class.valid]="upLoadForm.get('tags').valid" formControlName="tags" placeholder="Tags z.B. dog,cat" type="text" name="tags">
-      <input [class.valid]="upLoadForm.get('url').valid" pattern="(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|png)" formControlName="url" placeholder="URL" type="text" name="url">
+      <input [class.valid]="upLoadForm.get('url').valid" pattern="(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|png|jpeg)" formControlName="url" placeholder="URL" type="text" name="url">
 
       <textarea  [class.valid]="upLoadForm.get('description').valid" formControlName="description" pattern="[0-9a-zA-Z?ß\.,!\W]*" cols="30" rows="10" name="beschreibung" ></textarea>
 
