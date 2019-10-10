@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+
   searchImage( toSearch ) {
     this.IMAGESERVICE.changeSearch(toSearch);
     this.ROUTER.navigate(['Bilder']);

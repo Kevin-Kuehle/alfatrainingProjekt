@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {ImagesService} from "../images.service";
+import {error} from "util";
 
 @Component( {
   selector: 'app-image-detail',
@@ -11,24 +13,30 @@ export class BilderDetailComponent implements OnInit {
   public images;
   public image;
   public imageStyle;
-  loggedIn: boolean | string = false;
+  loggedIn = false ;
 
 
-  constructor( private aktiveLink: ActivatedRoute ) { }
+  constructor( private aktiveLink: ActivatedRoute, private imageService: ImagesService ) { }
 
   ngOnInit() {
-    this.index = this.aktiveLink.snapshot.paramMap.get( 'index' );
-    this.images = JSON.parse( localStorage.getItem( 'allData' ) );
-    this.image = this.images[this.index];
+    this.index = this.aktiveLink.snapshot.paramMap.get('index');
 
-    this.imageStyle = {
-      'backgroundImage': `url(${this.image.largeImageURL})`,
-    };
+    // @ts-ignore
+    this.imageService.getData().then( ( resolve , err ) => {
+      if ( err ) console.log( err );
 
-    if ( sessionStorage.getItem( 'loggedIn' ) !== null ) {
-      this.loggedIn = sessionStorage.getItem( 'loggedIn' );
-    } else {
-      this.loggedIn = false;
+      this.images = resolve;
+      this.image = this.images[this.index];
+      this.imageStyle = {
+        'backgroundImage': `url(${this.image.largeImageURL})`,
+      }
+    } );
+
+    if ( sessionStorage.getItem( 'loggedIn' ) != null && sessionStorage.getItem( 'loggedIn' ) == 'true' ) {
+      this.loggedIn = true;
     }
+
   }
+
+
 }

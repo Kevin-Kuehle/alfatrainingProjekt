@@ -16,39 +16,14 @@ export class BilderComponent implements OnInit {
   constructor( private imageService: ImagesService, private router: Router ) { }
 
   ngOnInit() {
-    this.imageService.getData().subscribe(
-      ( value ) => {
-        let customData = [];
-        // @ts-ignore
-        let onlineData = value.hits;
-        let mergeData = [];
+    // @ts-ignore
+    this.imageService.getData().then( ( resolve, err ) => {
+      if ( err ) console.log( err );
+      this.data = resolve;
+    } );
 
-        if ( localStorage.getItem( 'customData' ) !== null ) {
-          customData.unshift( JSON.parse( localStorage.getItem( 'customData' ) ) );
-
-          // um es auf eine andere Array-Ebene zu bringen.
-          customData = [...customData[0]];
-        }
-
-        mergeData = this.mergeDatas( onlineData, customData );
-
-        // Speichern der Bildquellen.
-        this.data = mergeData;
-
-        localStorage.setItem( 'allData', JSON.stringify( this.data ) );
-        localStorage.setItem( 'pixaData', JSON.stringify( onlineData ) );
-        localStorage.setItem( 'customData', JSON.stringify( customData ) );
-      },
-      ( error ) => console.log( error ),
-      () => console.log( `load done` )
-    );
-
-
-    if ( sessionStorage.getItem( 'loggedIn' ) !== null ) {
-      if ( sessionStorage.getItem( 'loggedIn' ) === 'true' ) {
-        this.loggedIn = true;
-      }
-
+    if ( sessionStorage.getItem( 'loggedIn' ) != null && sessionStorage.getItem( 'loggedIn' ) == 'true' ) {
+      this.loggedIn = true;
     }
   }
 
@@ -57,41 +32,18 @@ export class BilderComponent implements OnInit {
   }
 
   newSearch( toSearch ) {
-    this.imageService.getNewData( toSearch ).subscribe(
-      value => {
-        let customData = [];
-        // @ts-ignore
-        let onlineData = value.hits;
-        let mergeData = [];
-
-        if ( localStorage.getItem( 'customData' ) !== null ) {
-          customData.unshift( JSON.parse( localStorage.getItem( 'customData' ) ) );
-
-          // um es auf eine andere Array-Ebene zu bringen.
-          customData = [...customData[0]];
-        }
-
-        mergeData = this.mergeDatas( onlineData, customData );
-
-        // Speichern der Bildquellen.
-        this.data = mergeData;
-
-        localStorage.setItem( 'allData', JSON.stringify( this.data ) );
-        localStorage.setItem( 'pixaData', JSON.stringify( onlineData ) );
-        localStorage.setItem( 'customData', JSON.stringify( customData ) );
-      },
-      err => console.log( err ),
-      () => console.log( 'neue Daten erhalten...' )
-    )
+    // @ts-ignore
+    this.imageService.getNewData( toSearch ).then( ( res, err ) => {
+      if ( err ) console.log( err );
+      this.data = [...res[0]];
+    } )
   }
 
-  mergeDatas( onlineData, localData ) {
-    let mergeData;
-    mergeData = [...localData, ...onlineData];
-    return mergeData;
-  }
-
-  changeResult( value ) {
-    this.imageService.changeResult( value );
+  changeImageLimit( limit ) {
+    // @ts-ignore
+    this.imageService.changeResultLimit( limit ).then( ( res, err ) => {
+      if ( err ) console.log( err );
+      this.data = [...res];
+    } );
   }
 }

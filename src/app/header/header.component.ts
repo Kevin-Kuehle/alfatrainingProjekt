@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component( {
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
   userName = '';
   userPasswort = '';
 
-  constructor() { }
+  constructor( private ROUTE: Router ) { }
 
   ngOnInit() {
     if ( sessionStorage.getItem( 'loggedIn' ) !== null ) {
@@ -37,6 +38,6 @@ export class HeaderComponent implements OnInit {
   logMeOut() {
     this.isLoggedIn = false;
     sessionStorage.removeItem( 'loggedIn' );
-    window.location.reload();
+    this.ROUTE.navigate(['']);
   }
 }
