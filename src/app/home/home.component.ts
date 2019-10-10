@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   }
 
   searchImage( toSearch ) {
-    console.log(toSearch);
     this.IMAGESERVICE.changeSearch(toSearch);
     this.ROUTER.navigate(['Bilder']);
   }

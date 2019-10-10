@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./header.component.scss']
 } )
 export class HeaderComponent implements OnInit {
-  public triggerChangeColor = false;
+  logo = 'Kevin Kühle';
   public showLogin = true;
   private isLoggedIn: boolean | string = false;
   userName = '';
@@ -23,8 +23,6 @@ export class HeaderComponent implements OnInit {
   }
 
   checkLoginSubmit() {
-    console.log( 'Anmelden...' );
-
     if ( this.userName == 'admin' && this.userPasswort == '12345' ) {
       this.isLoggedIn = true;
       this.showLogin = true;

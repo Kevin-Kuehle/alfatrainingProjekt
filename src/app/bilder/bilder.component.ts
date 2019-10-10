@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ImagesService} from "../images.service";
 import {Router} from "@angular/router";
-import {log} from "util";
 
 @Component( {
   selector: 'app-bilder',
@@ -24,21 +23,24 @@ export class BilderComponent implements OnInit {
         let onlineData = value.hits;
         let mergeData = [];
 
-        if ( localStorage.getItem( 'dataTwo' ) !== null ) {
-          customData.unshift( JSON.parse( localStorage.getItem( 'dataTwo' ) ) );
+        if ( localStorage.getItem( 'customData' ) !== null ) {
+          customData.unshift( JSON.parse( localStorage.getItem( 'customData' ) ) );
+
+          // um es auf eine andere Array-Ebene zu bringen.
           customData = [...customData[0]];
         }
+
         mergeData = this.mergeDatas( onlineData, customData );
-        console.log( mergeData );
+
+        // Speichern der Bildquellen.
         this.data = mergeData;
 
         localStorage.setItem( 'allData', JSON.stringify( this.data ) );
-        localStorage.setItem( 'Data', JSON.stringify( onlineData ) );
-
-        //----------------------------------------------------------------------------------------------------------------
+        localStorage.setItem( 'pixaData', JSON.stringify( onlineData ) );
+        localStorage.setItem( 'customData', JSON.stringify( customData ) );
       },
       ( error ) => console.log( error ),
-      () => console.log( ` imageService done.` )
+      () => console.log( `load done` )
     );
 
 
@@ -55,7 +57,6 @@ export class BilderComponent implements OnInit {
   }
 
   newSearch( toSearch ) {
-    console.log( toSearch );
     this.imageService.getNewData( toSearch ).subscribe(
       value => {
         let customData = [];
@@ -63,18 +64,23 @@ export class BilderComponent implements OnInit {
         let onlineData = value.hits;
         let mergeData = [];
 
-        if ( localStorage.getItem( 'dataTwo' ) !== null ) {
-          customData.unshift( JSON.parse( localStorage.getItem( 'dataTwo' ) ) );
+        if ( localStorage.getItem( 'customData' ) !== null ) {
+          customData.unshift( JSON.parse( localStorage.getItem( 'customData' ) ) );
+
+          // um es auf eine andere Array-Ebene zu bringen.
           customData = [...customData[0]];
         }
+
         mergeData = this.mergeDatas( onlineData, customData );
-        console.log( mergeData );
+
+        // Speichern der Bildquellen.
         this.data = mergeData;
 
         localStorage.setItem( 'allData', JSON.stringify( this.data ) );
-        localStorage.setItem( 'Data', JSON.stringify( onlineData ) );
+        localStorage.setItem( 'pixaData', JSON.stringify( onlineData ) );
+        localStorage.setItem( 'customData', JSON.stringify( customData ) );
       },
-      err => log( err ),
+      err => console.log( err ),
       () => console.log( 'neue Daten erhalten...' )
     )
   }
@@ -84,7 +90,8 @@ export class BilderComponent implements OnInit {
     mergeData = [...localData, ...onlineData];
     return mergeData;
   }
-  changeResult(value) {
-    this.imageService.changeResult(value);
+
+  changeResult( value ) {
+    this.imageService.changeResult( value );
   }
 }

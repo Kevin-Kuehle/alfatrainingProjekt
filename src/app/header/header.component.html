@@ -1,6 +1,6 @@
 <div class="header-container">
-  <div (mouseleave)="triggerChangeColor = !triggerChangeColor" [class.changeColor]="triggerChangeColor" class="logo">
-    Kevin Kühle
+  <div class="logo">
+    {{ logo }}
   </div>
   <div class="menu">
     <a routerLink="" class="btn btn-primary">Startseite</a>
@@ -15,7 +15,7 @@
     <button (click)="showLogin = !showLogin" type="button" class="close-btn close" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-    <h3 >Anmelden</h3>
+    <h3>Anmelden</h3>
   </div>
   <div class="body">
     <form class="loginForm">

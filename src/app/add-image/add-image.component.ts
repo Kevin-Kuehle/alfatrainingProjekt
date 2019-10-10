@@ -32,17 +32,17 @@ export class AddImageComponent implements OnInit {
       'description': this.upLoadForm.get( 'description' ).value,
     };
 
-    if ( localStorage.getItem( 'dataTwo' ) == null || localStorage.getItem( 'dataTwo' ) == undefined ) {
+    if ( localStorage.getItem( 'customData' ) == null || localStorage.getItem( 'customData' ) == undefined ) {
       console.log( 'Daten setzen' );
       localStorageData.push( Obj );
-      localStorage.setItem( 'dataTwo', JSON.stringify( localStorageData ) );
-      console.log( JSON.parse( localStorage.getItem( 'dataTwo' ) ) );
+      localStorage.setItem( 'customData', JSON.stringify( localStorageData ) );
+      console.log( JSON.parse( localStorage.getItem( 'customData' ) ) );
     } else {
 
-      localStorageData = JSON.parse( localStorage.getItem( 'dataTwo' ) );
+      localStorageData = JSON.parse( localStorage.getItem( 'customData' ) );
       localStorageData.unshift( Obj );
 
-      localStorage.setItem( 'dataTwo', JSON.stringify( localStorageData ) );
+      localStorage.setItem( 'customData', JSON.stringify( localStorageData ) );
 
       console.log( localStorageData );
     }
