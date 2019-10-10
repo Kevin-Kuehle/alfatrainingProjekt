@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { BilderDetailComponent } from './bilder-detail/bilder-detail.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ImagesService} from "./images.service";
+import { AddImageComponent } from './add-image/add-image.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {ImagesService} from "./images.service";
     HeaderComponent,
     FooterComponent,
     BilderComponent,
-    BilderDetailComponent
+    BilderDetailComponent,
+    AddImageComponent
 
   ],
   imports: [

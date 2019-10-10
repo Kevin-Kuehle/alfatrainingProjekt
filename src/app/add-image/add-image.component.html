@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <h2 class="pt-5 pb-5">Bildhinzufügen</h2>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    {{ upLoadForm.valid }}
+    <form [formGroup]="upLoadForm" class="addForm d-flex flex-column align-items-center justify-content-center">
+      <input  [class.valid]="upLoadForm.get('title').valid" formControlName="title" placeholder="TITEL" type="text" name="titel">
+      <input  [class.valid]="upLoadForm.get('tags').valid" formControlName="tags" placeholder="Tags z.B. dog,cat" type="text" name="tags">
+      <input [class.valid]="upLoadForm.get('url').valid" pattern="(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|png)" formControlName="url" placeholder="URL" type="text" name="url">
+
+      <textarea  [class.valid]="upLoadForm.get('description').valid" formControlName="description" pattern="[0-9a-zA-Z?ß\.,!\W]*" cols="30" rows="10" name="beschreibung" ></textarea>
+
+      <button [disabled]="!upLoadForm.valid"  (click)="addImage()" [class.valid]="upLoadForm.valid" type="button" name="upload" id="" class="btn submit btn-lg btn-block mt-4 "> Hochladen</button>
+    </form>
+  </div>
+</div>

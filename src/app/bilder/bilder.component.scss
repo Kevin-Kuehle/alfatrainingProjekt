@@ -7,6 +7,7 @@
 .ImagesContainer {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 
 }
 
@@ -32,6 +33,7 @@
   background-position: center;
   background-size: cover;
   cursor: pointer;
+  max-width: 33%;
 }
 
 .searchForm {

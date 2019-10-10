@@ -1,0 +1,54 @@
+:host {
+  flex: 1;
+  background-color: var(--background-color);
+  color: #fff;
+  padding-top: 52px;
+}
+
+.addForm {
+  width: 100%;
+
+  input {
+    margin-bottom: 0.5rem;
+    width: 80%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--akzent-color);
+    padding: 0.3rem 0;
+    text-align: center;
+    color: #3cf5db;
+
+    &.valid {
+      border-bottom: #07ff11 1px solid;
+    }
+  }
+
+  textarea {
+    overflow: auto;
+    resize: vertical;
+    width: 80%;
+    background-color: #9800ff26;
+    border: none;
+    color: white;
+    padding: 1rem;
+
+    &.valid {
+      border: #07ff11 1px solid;
+    }
+  }
+
+
+}
+
+.submit {
+  color: black;
+  background-color: grey;
+  max-width: 80%;
+
+
+  &.valid {
+    background-color: lawngreen;
+  }
+}
+
+

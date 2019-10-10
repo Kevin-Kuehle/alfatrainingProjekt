@@ -7,7 +7,7 @@ import {Subject} from "rxjs";
 } )
 export class ImagesService {
   toSearch;
-  perPage = '40';
+  perPage = '20';
   pixabayToken = '2265964-89697f5f85fbc653cbfb22eb6';
   path;
 
@@ -35,4 +35,9 @@ export class ImagesService {
   changeSearch(search) {
     this.changePath(search);
   }
+  changeResult(value){
+    this.perPage = value.toString() ;
+    console.log(value.toString());
+  }
+
 }

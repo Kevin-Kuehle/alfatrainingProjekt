@@ -1,22 +1,26 @@
 <main>
   <div class="container align-middle align-content-center image-header">
+
     <div class="d-flex justify-content-center align-items-center align-middle row" [style.height]="'250px'">
       <h1>{{title | titlecase }}</h1>
     </div>
+
     <div class="searchForm">
-      <input  (keyup.enter)="newSearch(searchForm.value)" name="searchForm" class="searchFormBilder"  #searchForm type="text"> <i   (click)="newSearch(searchForm.value)" class="fa fa-search" aria-hidden="true"></i>
+      <input (keyup.enter)="newSearch(searchForm.value)" name="searchForm" class="searchFormBilder" #searchForm
+             type="text"> <i (click)="newSearch(searchForm.value)" class="fa fa-search" aria-hidden="true"></i>
       <div class="toolBar">
         <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn ">20 Bilder</button>
-          <button type="button" class="btn">60 Bilder</button>
-          <button type="button" class="btn">100 Bilder</button>
+          <button (click)="changeResult(20)" #small type="button" class="btn ">20 Bilder</button>
+          <button (click)="changeResult(60)" #medium type="button" class="btn">60 Bilder</button>
+          <button (click)="changeResult(100)" #large type="button" class="btn">100 Bilder</button>
         </div>
       </div>
     </div>
+    <button *ngIf="loggedIn"  routerLink="/add" type="button"  class=" mb-4 btn btn-primary btn-lg btn-block">Bild +</button>
 
   </div>
   <div class="ImagesContainer">
-    <div (click)="showDetail( i )" *ngFor="let image of data?.hits; index as i"
+    <div (click)="showDetail( i )" id="{{i}}" *ngFor="let image of data; index as i"
          class="fadeIn imageBox image-{{i}}"
          [style.backgroundImage]="'url(' + image.largeImageURL + ')'">
     </div>
