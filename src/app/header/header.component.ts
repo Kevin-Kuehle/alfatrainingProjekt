@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
       this.isLoggedIn = true;
       this.showLogin = true;
       sessionStorage.setItem( 'loggedIn', 'true' );
+      window.location.reload();
     } else {
       this.isLoggedIn = false;
       sessionStorage.setItem( 'loggedIn', 'false' )
@@ -38,5 +39,6 @@ export class HeaderComponent implements OnInit {
   logMeOut() {
     this.isLoggedIn = false;
     sessionStorage.removeItem( 'loggedIn' );
+    window.location.reload();
   }
 }
