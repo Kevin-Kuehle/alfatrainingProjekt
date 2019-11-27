@@ -5,6 +5,7 @@
   font-family: 'Roboto', sans-serif;
   text-rendering: optimizeLegibility;
   outline: none;
+  overflow-x: hidden;
 }
 
 :root {
@@ -24,7 +25,9 @@
 }
 
 
-.light { color: var(--akzent-color) }
+.light {
+  color: var(--akzent-color)
+}
 
 .wrapper {
   padding-top: 3rem;
@@ -33,5 +36,5 @@
   margin: 0 auto;
   width: var(--template-width);
 }
-@import "assets/css-effects/fade-in";
 
+@import "assets/css-effects/fade-in";

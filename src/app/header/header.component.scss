@@ -1,128 +1,155 @@
 :host {
-	z-index: 5000;
+  z-index: 5000;
+  max-width: 100vw;
 }
 
 .header-container {
-	display: flex;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 52px;
-	padding: 0 3rem;
-	background-color: var(--main-color);
-	justify-content: space-between;
-	align-content: center;
-	align-items: center;
-	color: var(--akzent-color);
-	box-shadow: 0 4px 2px -3px rgba(0, 0, 0, 0.8);
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52px;
+  padding: 0 3rem;
+  background-color: var(--main-color);
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  color: var(--akzent-color);
+  box-shadow: 0 4px 2px -3px rgba(0, 0, 0, 0.8);
 
-	.logo {
-		font-weight: 500;
-	}
+  .logo {
+    font-weight: 500;
+  }
+
+  @media (max-width: 600px) {
+    padding: 0 0.5rem;
+
+    .logo {
+      display: none;
+    }
+  }
 }
 
 .menu {
-	.btn-header {
-		border: 1px solid rgb(240, 235, 235);
-		color: white;
+  .btn-header {
+    border: 1px solid rgb(240, 235, 235);
+    color: white;
 
-		&:hover {
-			background-color: rgba(0, 0, 0, 0.2);
-		}
-	}
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
 
-	a {
-		margin-right: 15px;
+  a {
+    margin-right: 15px;
 
-		&:last-child {
-			margin-right: 0;
-		}
-	}
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width:420px) {
+    a {
+      margin-right: 8px;
+    }
+  }
 }
 
 .changeColor {
-	color: greenyellow;
+  color: greenyellow;
 }
 
 .formContainer {
-	z-index: 5000;
-	position: absolute;
-	left: calc(50% - 200px);
-	top: 20%;
-	width: 400px;
-	height: 100%;
-	max-height: 500px;
-	background-color: var(--skundaer-color);
-	display: flex;
-	flex-flow: column;
-	box-shadow: 1px 5px 16px rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+  position: absolute;
+  left: calc(50% - 200px);
+  top: 20%;
+  width: 400px;
+  height: 100%;
+  max-height: 500px;
+  background-color: var(--skundaer-color);
+  display: flex;
+  flex-flow: column;
+  box-shadow: 1px 5px 16px rgba(0, 0, 0, 0.5);
 
-	.header {
-		display: flex;
-		flex-flow: column nowrap;
-		color: #fff;
-		align-items: center;
-		align-content: center;
-		justify-content: space-between;
-		height: 250px;
-		background-color: var(--main-color);
+  .header {
+    display: flex;
+    flex-flow: column nowrap;
+    color: #fff;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    height: 250px;
+    background-color: var(--main-color);
 
-		.close {
-			text-shadow: none;
-			color: black;
-			align-self: flex-end;
-			justify-self: flex-start;
-			margin-right: 0.5rem;
-		}
-	}
+    .close {
+      text-shadow: none;
+      color: black;
+      align-self: flex-end;
+      justify-self: flex-start;
+      margin-right: 0.5rem;
+    }
+  }
 
-	.body {
-		flex: 1;
-		display: flex;
-		flex-flow: column;
-		align-content: center;
-		align-items: center;
-		height: 100%;
+  .body {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    align-items: center;
+    height: 100%;
 
-		.loginForm {
-			padding: 3rem 1rem;
-			color: #fff;
-			flex-flow: column nowrap;
-			align-items: center;
-			align-content: center;
+    .loginForm {
+      padding: 3rem 1rem;
+      color: #fff;
+      flex-flow: column nowrap;
+      align-items: center;
+      align-content: center;
 
-			.group {
-				margin-bottom: 0.5rem;
-				display: flex;
-				flex-flow: column;
+      .group {
+        margin-bottom: 0.5rem;
+        display: flex;
+        flex-flow: column;
 
-				label {
-					margin: 0 0 0.2rem 0;
-					padding: 0;
-					text-align: center;
-				}
+        label {
+          margin: 0 0 0.2rem 0;
+          padding: 0;
+          text-align: center;
+        }
 
-				input {
-					background: none;
-					border: none;
-					color: #3cf5db;
-					border-bottom: 1px solid #fff;
-					text-align: center;
-				}
+        input {
+          background: none;
+          border: none;
+          color: #3cf5db;
+          border-bottom: 1px solid #fff;
+          text-align: center;
+        }
 
-				&:last-child {
-					margin-bottom: 0;
-				}
-			}
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
 
-			button {
-				margin: 2rem 0;
-			}
-		}
-	}
+      button {
+        margin: 2rem 0;
+      }
+    }
+  }
+
+  @media (max-width:430px) {
+    top: 10%;
+    width: 80vw;
+    height: 70vh;
+    left: calc(50% - (80vw/2));
+
+    .header {
+      height: 100px;
+    }
+
+  }
 }
 
 .topSpacer {
-	max-height: 250px;
+  max-height: 250px;
 }

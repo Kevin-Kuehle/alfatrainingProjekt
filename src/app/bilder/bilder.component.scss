@@ -34,6 +34,12 @@
   background-size: cover;
   cursor: pointer;
   max-width: 33%;
+
+  @media (max-width: 600px) {
+    flex: 0 1 auto;
+    width: 48%;
+    max-width: initial;
+  }
 }
 
 .searchForm {
@@ -59,7 +65,7 @@
     font-size: 29px;
     letter-spacing: 3.2px;
 
-    + i {
+    +i {
       position: absolute;
       right: 32px;
       top: 72px;

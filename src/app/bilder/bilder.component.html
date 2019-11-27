@@ -7,7 +7,7 @@
 
     <div class="searchForm">
       <input (keyup.enter)="newSearch(searchForm.value)" name="searchForm" class="searchFormBilder" #searchForm
-             type="text"> <i (click)="newSearch(searchForm.value)" class="fa fa-search" aria-hidden="true"></i>
+        type="text"> <i (click)="newSearch(searchForm.value)" class="fa fa-search" aria-hidden="true"></i>
       <div class="toolBar">
         <div class="btn-group" role="group" aria-label="Basic example">
           <button (click)="changeImageLimit(20)" #small type="button" class="btn ">20 Bilder</button>
@@ -16,15 +16,14 @@
         </div>
       </div>
     </div>
-    <button *ngIf="loggedIn" routerLink="/add" type="button" class=" mb-4 btn btn-primary btn-lg btn-block">Bild +</button>
+    <button *ngIf="loggedIn" routerLink="/add" type="button" class=" mb-4 btn btn-primary btn-lg btn-block">Bild
+      +</button>
 
   </div>
   <div class="ImagesContainer">
-    <div (click)="showDetail( i )" id="{{i}}" *ngFor="let image of data; index as i"
-         class="fadeIn imageBox image-{{i}}"
-         [style.backgroundImage]="'url(' + image.largeImageURL + ')'">
+    <div (click)="showDetail( i )" id="{{i}}" *ngFor="let image of data; index as i" class="fadeIn imageBox image-{{i}}"
+      [style.backgroundImage]="'url(' + image.largeImageURL + ')'">
     </div>
   </div>
 </main>
 <div class="spacer"></div>
-
