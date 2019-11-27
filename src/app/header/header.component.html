@@ -3,8 +3,8 @@
     {{ logo }}
   </div>
   <div class="menu">
-    <a routerLink="" class="btn btn-primary">Startseite</a>
-    <a routerLink="Bilder" class="btn btn-primary">Bilder</a>
+    <a routerLink="" class="btn btn-header">Startseite</a>
+    <a routerLink="Bilder" class="btn btn-header">Bilder</a>
   </div>
   <a *ngIf="!isLoggedIn" (click)="showLogin = !showLogin" class="btn btn-primary">Anmelden</a>
   <a *ngIf="isLoggedIn" (click)="logMeOut()" class="btn btn-primary">Abmelden</a>
@@ -27,7 +27,8 @@
         <label for="passwort"><small>Passwort</small></label>
         <input [(ngModel)]="userPasswort" id="passwort" name="passwort" placeholder="12345" type="password">
       </div>
-      <button (click)="checkLoginSubmit()" type="button" name="" id="" class="btn btn-primary btn-lg btn-block">{{ 'Anmelden' | uppercase }}</button>
+      <button (click)="checkLoginSubmit()" type="button" name="" id=""
+        class="btn btn-primary btn-lg btn-block">{{ 'Anmelden' | uppercase }}</button>
     </form>
   </div>
 </div>
